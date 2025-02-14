@@ -62,8 +62,8 @@ class _GenderSelectionState extends State<GenderSelection> {
           child: Image.asset(
             imagePath,
             width: 150.w,
-            height: 150.h,
-            fit: BoxFit.contain,
+            height: 250.h,
+            fit: BoxFit.cover,
           ),
         ),
         SizedBox(height: 12.h),

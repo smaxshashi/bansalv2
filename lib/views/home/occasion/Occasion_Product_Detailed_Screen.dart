@@ -16,8 +16,7 @@ class ProductDetailScreen extends StatelessWidget {
   final ProductDetailsController controller =
       Get.put(ProductDetailsController());
 
-  ProductDetailScreen({Key? key, required this.product})
-      : super(key: key);
+  ProductDetailScreen({Key? key, required this.product}) : super(key: key);
 
   Future<String> getUserId() async {
     final userId = await AuthService.getUserId();
@@ -91,22 +90,31 @@ class ProductDetailScreen extends StatelessWidget {
                       Positioned(
                         bottom: 10.h,
                         child: Obx(() => Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(product.imageUrls.length, (index) {
-                            return AnimatedContainer(
-                              duration: Duration(milliseconds: 300),
-                              margin: EdgeInsets.symmetric(horizontal: 4.w, vertical: 8.h),
-                              width: controller.currentImageIndex.value == index ? 12.w : 8.w,
-                              height: controller.currentImageIndex.value == index ? 12.h : 8.h,
-                              decoration: BoxDecoration(
-                                color: controller.currentImageIndex.value == index
-                                    ? Colors.white
-                                    : Colors.grey[300],
-                                shape: BoxShape.circle,
-                              ),
-                            );
-                          }),
-                        )),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(product.imageUrls.length,
+                                  (index) {
+                                return AnimatedContainer(
+                                  duration: Duration(milliseconds: 300),
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: 4.w, vertical: 8.h),
+                                  width: controller.currentImageIndex.value ==
+                                          index
+                                      ? 12.w
+                                      : 8.w,
+                                  height: controller.currentImageIndex.value ==
+                                          index
+                                      ? 12.h
+                                      : 8.h,
+                                  decoration: BoxDecoration(
+                                    color: controller.currentImageIndex.value ==
+                                            index
+                                        ? Colors.white
+                                        : Colors.grey[300],
+                                    shape: BoxShape.circle,
+                                  ),
+                                );
+                              }),
+                            )),
                       ),
                     ],
                   ),
@@ -135,24 +143,28 @@ class ProductDetailScreen extends StatelessWidget {
                           children: [
                             Text(
                               'Karat: ${product.karat}',
-                              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                              style: TextStyle(
+                                  fontSize: 16.sp, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           'Weight: ${product.weight}gm',
-                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           'MakingCharge: ${product.wastage}%',
-                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
                         ),
                         SizedBox(height: 8.h),
                         Text(
                           'Description:${product.description}',
-                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
                         ),
                         SizedBox(height: 8.h),
                         Container(
@@ -161,27 +173,35 @@ class ProductDetailScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               ElevatedButton.icon(
-                                onPressed: () => _launchUrl('https://wa.me/+917982031621'),
+                                onPressed: () {
+                                  String message = Uri.encodeComponent(
+                                      "Hello, I have a question regarding the product from your app.");
+                                  _launchUrl(
+                                      'https://wa.me/+917982031621?text=$message');
+                                },
                                 icon: Image.asset(
                                   'assets/icons/whatsapp.png',
                                   height: 14.h,
                                 ),
                                 label: Text(
                                   'Click WhatsApp to ask!',
-                                  style: TextStyle(color: Colors.green, fontSize: 8.sp),
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 8.sp),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   fixedSize: Size(160.w, 15.h),
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(color: Colors.green, width: 2.w),
+                                    side: BorderSide(
+                                        color: Colors.green, width: 2.w),
                                     borderRadius: BorderRadius.circular(8.r),
                                   ),
                                 ),
                               ),
                               SizedBox(width: 10.w),
                               ElevatedButton.icon(
-                                onPressed: () => _launchUrl('tel:+917982031621'),
+                                onPressed: () =>
+                                    _launchUrl('tel:+917982031621'),
                                 icon: Icon(
                                   Icons.phone,
                                   color: Colors.green,
@@ -189,10 +209,12 @@ class ProductDetailScreen extends StatelessWidget {
                                 ),
                                 label: Text(
                                   'Click to Call!',
-                                  style: TextStyle(color: Colors.green, fontSize: 8.sp),
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 8.sp),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  side: BorderSide(color: Colors.green, width: 2.w),
+                                  side: BorderSide(
+                                      color: Colors.green, width: 2.w),
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.r),
@@ -225,9 +247,10 @@ class ProductDetailScreen extends StatelessWidget {
                   CustomButton(
                     label: 'Add to Wishlist',
                     onPressed: () {
-                      cartController.addToCart(userId, product.productId.toString());
+                      cartController.addToCart(
+                          userId, product.productId.toString());
                     },
-                    width: 550.w, 
+                    width: 550.w,
                     height: 50.h,
                     color: kDark,
                     fontSize: 20.sp,

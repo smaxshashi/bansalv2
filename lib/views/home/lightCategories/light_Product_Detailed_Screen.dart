@@ -165,11 +165,15 @@ class LightDetailScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               ElevatedButton.icon(
-                                onPressed: () =>
-                                    _launchUrl('https://wa.me/+917982031621'),
+                                onPressed: () {
+                                  String message = Uri.encodeComponent(
+                                      "Hello, I have a question regarding the product from your app.");
+                                  _launchUrl(
+                                      'https://wa.me/+917982031621?text=$message');
+                                },
                                 icon: Image.asset(
                                   'assets/icons/whatsapp.png',
-                                  height: 14.h, // Use ScreenUtil for height
+                                  height: 14.h,
                                 ),
                                 label: Text(
                                   'Click WhatsApp to ask!',
@@ -182,8 +186,7 @@ class LightDetailScreen extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.green, width: 2.w),
-                                    borderRadius: BorderRadius.circular(
-                                        8.r), // Use ScreenUtil for radius
+                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
                                 ),
                               ),

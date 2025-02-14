@@ -1,12 +1,14 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../common/custome_appbar.dart';
+import '../../constants/constants.dart';
 import '../../services/auth_service.dart';
 import '../authentication/login_screen.dart';
 import 'edit_detail.dart';
-import '../../common/custome_appbar.dart';
-import '../../constants/constants.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -109,7 +111,9 @@ class _ProfilePageState extends State<ProfilePage> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to delete account: ${response['data']['message']}')),
+        SnackBar(
+            content: Text(
+                'Failed to delete account: ${response['data']['message']}')),
       );
     }
   }
@@ -150,7 +154,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ? FileImage(selectedImage!)
                                 : profileImageUrl?.isNotEmpty == true
                                     ? FadeInImage.assetNetwork(
-                                        placeholder: 'assets/placeholder.png', // Add a placeholder image
+                                        placeholder:
+                                            'assets/placeholder.png', // Add a placeholder image
                                         image: profileImageUrl!,
                                       ).image
                                     : null,
@@ -177,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         isLoading
                             ? const SizedBox()
                             : Text(
-                                "Welcome to Bansal Jewellers Pvt Ltd",
+                                "Welcome to Bansal & Sons Jewellers Pvt Ltd",
                                 style: TextStyle(
                                   color: kDark,
                                   fontSize: 14.sp,
@@ -296,7 +301,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(color: Colors.red, fontSize: 16.sp),
                 ),
               ),
-              
+
               SizedBox(height: 100.h),
             ],
           ),

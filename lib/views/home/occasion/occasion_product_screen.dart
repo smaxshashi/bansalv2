@@ -75,11 +75,11 @@ class OccasionProductScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.all(10.w), // Responsive padding
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10.w, // Responsive spacing
-                  mainAxisSpacing: 10.h, // Responsive spacing
-                  childAspectRatio: 0.5.h, // Responsive aspect ratio
-                ),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.w, // Responsive spacing
+                    mainAxisSpacing: 10.h, // Responsive spacing
+                    // childAspectRatio: 0.5.h, // Responsive aspect ratio
+                    mainAxisExtent: 300.h),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];

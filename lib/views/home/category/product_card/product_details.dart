@@ -182,8 +182,12 @@ class ProductDetails extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 ElevatedButton.icon(
-                                  onPressed: () =>
-                                      _launchUrl('https://wa.me/+917982031621'),
+                                  onPressed: () {
+                                    String message = Uri.encodeComponent(
+                                        "Hello, I have a question regarding the product from your app.");
+                                    _launchUrl(
+                                        'https://wa.me/+917982031621?text=$message');
+                                  },
                                   icon: Image.asset(
                                     'assets/icons/whatsapp.png',
                                     height: 14.h,
@@ -191,17 +195,15 @@ class ProductDetails extends StatelessWidget {
                                   label: Text(
                                     'Click WhatsApp to ask!',
                                     style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 8.sp,
-                                    ),
+                                        color: Colors.green, fontSize: 8.sp),
                                   ),
                                   style: ElevatedButton.styleFrom(
                                     fixedSize: Size(160.w, 15.h),
                                     backgroundColor: Colors.white,
-                                    side: BorderSide(
-                                        color: Colors.green, width: 2.w),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
+                                      side: BorderSide(
+                                          color: Colors.green, width: 2.w),
+                                      borderRadius: BorderRadius.circular(8.r),
                                     ),
                                   ),
                                 ),

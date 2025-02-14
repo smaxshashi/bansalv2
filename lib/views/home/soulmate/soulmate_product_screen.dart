@@ -75,11 +75,11 @@ class SoulmateProductScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.all(10.w), // Scalable padding
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10.w, // Scalable cross axis spacing
-                  mainAxisSpacing: 10.h, // Scalable main axis spacing
-                  childAspectRatio: 0.5.h, // Adjusted aspect ratio
-                ),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.w, // Scalable cross axis spacing
+                    mainAxisSpacing: 10.h, // Scalable main axis spacing
+                    // childAspectRatio: 0.5.h, // Adjusted aspect ratio
+                    mainAxisExtent: 300.h),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final soulmate = products[index];

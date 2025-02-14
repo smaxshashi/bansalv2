@@ -84,11 +84,11 @@ class GiftingProductScreen extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10.w,
-                    mainAxisSpacing: 10.h,
-                    childAspectRatio: 0.5.h, // Adjusted for better scaling
-                  ),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.w,
+                      mainAxisSpacing: 10.h,
+                      //  childAspectRatio: 0.5.h, // Adjusted for better scaling
+                      mainAxisExtent: 300.h),
                   itemCount: products.length,
                   itemBuilder: (context, index) {
                     final gifting = products[index];

@@ -42,7 +42,7 @@ class ProductCard extends StatelessWidget {
                     imageUrl: product.compressedImageUrls.isNotEmpty
                         ? product.compressedImageUrls[0]
                         : 'https://via.placeholder.com/150',
-                    height: 140.h,
+                    height: 180.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => Center(

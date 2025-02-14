@@ -124,7 +124,7 @@ class ProductListView extends HookWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 10.w,
                   mainAxisSpacing: 10.h,
-                  childAspectRatio: 0.5.h,
+                  mainAxisExtent: 300.h, // Set height to 140.h
                 ),
                 itemCount: fetchHook.data!.length,
                 itemBuilder: (context, index) {

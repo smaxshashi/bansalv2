@@ -28,64 +28,67 @@ class _YourFeedbackState extends State<YourFeedback> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.r),
-        ),
-        child: Container(
-          width: 300.w,
-          height: 250.h,
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          decoration: BoxDecoration(
-            color: Colors.white,
+      child: InkWell(
+        onTap: _openReviewUrl, // Makes the whole card clickable
+        borderRadius: BorderRadius.circular(
+            16.r), // Ensures ripple effect matches the card
+        child: Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Feedback Icon/Image
-              Image.asset(
-                'assets/images/rate12.png',
-                height: 50.h,
-                
-                
-              ),
-              // Feedback Text
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Text(
-                  "Your feedback is a gem! Rate us to help us improve and keep dazzling you.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.black87,
-                  ),
+          child: Container(
+            width: 300.w,
+            height: 250.h,
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Feedback Icon/Image
+                Image.asset(
+                  'assets/images/rate12.png',
+                  height: 50.h,
                 ),
-              ),
-              // Rate Us Button
-              SizedBox(
-                width: 120.w,
-                height: 40.h,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: kGray,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
-                  ),
-                  onPressed: _openReviewUrl,
+                // Feedback Text
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: Text(
-                    'RATE US',
+                    "Your feedback is a gem! Rate us to help us improve and keep dazzling you.",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14.sp,
-                      color: kWhite,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
                     ),
                   ),
                 ),
-              ),
-            ],
+                // Rate Us Button
+                SizedBox(
+                  width: 120.w,
+                  height: 40.h,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: kGray,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                    ),
+                    onPressed: _openReviewUrl, // Button still works separately
+                    child: Text(
+                      'RATE US',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: kWhite,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
